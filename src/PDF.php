@@ -53,6 +53,10 @@ class PDF
         $this->files = $files;
         $this->view = $view;
 
+        $this->dompdf->setPaper(
+            $this->config->get('dompdf.defines.default_paper_size', 'a4'),
+            $this->config->get('dompdf.orientation', 'portrait')
+        );
         $this->showWarnings = $this->config->get('dompdf.show_warnings', false);
     }
 
